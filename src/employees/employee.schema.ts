@@ -1,9 +1,8 @@
-import * as mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
-export const EmployeeSchema = new mongoose.Schema({
-  matricule: String,
+export const EmployeeSchema = new Schema({
   name: String,
   lastName: String,
   email: String,
   phone: String,
-});
+}, { versionKey: false });

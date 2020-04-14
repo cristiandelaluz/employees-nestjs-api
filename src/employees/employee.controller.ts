@@ -2,7 +2,7 @@ import { Controller, Param, Body, Get, Post, Put, Delete } from "@nestjs/common"
 import { EmployeeService } from './employee.service';
 import { Employee } from './employee.interface';
 
-@Controller()
+@Controller('employee')
 export class EmployeeController {
   constructor(private readonly employeeService: EmployeeService) {}
 
@@ -26,8 +26,8 @@ export class EmployeeController {
     return await this.employeeService.update(employee);
   }
 
-  @Delete()
-  async delete(@Param() id: string): Promise<Employee> {
+  @Delete(':id')
+  async delete(@Param('id') id: string): Promise<Employee> {
     return await this.employeeService.delete(id);
   }
 }
